@@ -1,0 +1,8 @@
+{
+    "database" : {
+        "name" : "lib",
+        "port" : "27017",
+        "ip"   : "127.0.0.1"
+    },
+    "secret" : "library_application"
+}
