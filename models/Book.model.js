@@ -7,7 +7,7 @@ const BookSchema = new Schema({
     author      : { type: String, required: true },
     inventory   : { type: Number, min: 0, required: true },
     price       : { type: Number, min: 1, required: true },
-    tags        : [{ type: Schema.Types.ObjectId, ref: 'Tag' }]
+    tags        : [{ type: Schema.Types.ObjectId, ref: 'Tag'}]
 });
 
 module.exports = db.model('Book', BookSchema);

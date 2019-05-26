@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
 
 /* 
@@ -25,7 +26,7 @@ router.use('/auth', require('./auth.route'));
  *  GET     /
  * 
  */
-router.use('/profile', require('./profile.route'));
+router.use('/profile', auth, require('./profile.route'));
 
 
 
@@ -41,7 +42,7 @@ router.use('/profile', require('./profile.route'));
  *  DELETE  /:id
  * 
  */
-router.use('/books', require('./books.route'));
+router.use('/books', auth, require('./books.route'));
 
 
 
@@ -53,7 +54,31 @@ router.use('/books', require('./books.route'));
  *  POST     /:bookId
  * 
  */
-router.use('/buy', require('./buy.route'));
+router.use('/buy', auth, require('./buy.route'));
+
+
+
+/* 
+ *
+ * Order routes
+ * 
+ * Includes : 
+ *  POST     /:bookId
+ * 
+ */
+router.use('/tag', auth, require('./tag.route'));
+
+
+/* 
+ *
+ * Customer routes
+ * 
+ * Includes : 
+ *  GET     /list
+ *  GET     /:id
+ * 
+ */
+router.use('/customer', auth, require('./customer.route'));
 
 
 
