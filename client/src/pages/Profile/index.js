@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import Router from './routes';
 
-
-export default class App extends Component{
+export default class Profile extends Component{
     render(){
         return(
             <div>
-                <Router />
+                Profile
             </div>
-        );
+        )
     }
 }
