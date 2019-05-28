@@ -8,6 +8,10 @@ import './scss/index.scss';
 
 Axios.defaults.baseURL = "http://127.0.0.1:3001";
 
+if (localStorage.getItem('token')){
+    Axios.defaults.headers['auth'] = localStorage.getItem('token');
+}
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
