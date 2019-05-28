@@ -14,6 +14,10 @@ import {
 
 import FormTitle from './components/FormTitle';
 
+import axios from 'axios';
+
+import Api from '../../apis';
+
 export default class Auth extends Component{
     constructor(){
         super();
@@ -33,6 +37,23 @@ export default class Auth extends Component{
     }
 
     login = () => {
+
+        console.log(this.state);
+
+        axios
+            .post(Api.loginUrl, this.state)
+            .then(res => {
+                if (res.data.status){
+                    localStorage.setItem('token', res.data.data);
+                    alert(res.data.msg);
+                }
+            })
+            .catch(err => {
+                console.log({err: err.response});
+                if (!err.response.data.status){
+                    alert(err.response.data.msg);
+                }
+            });
 
     }
 
