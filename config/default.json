@@ -1,8 +1,11 @@
 {
     "database" : {
         "name" : "lib",
-        "port" : "27017",
-        "ip"   : "127.0.0.1"
+        "port" : "5432",
+        "ip"   : "127.0.0.1",
+        "user" : "postgres",
+        "pass" : "",
+        "driver" : "postgres"
     },
     "secret" : "library_application"
 }

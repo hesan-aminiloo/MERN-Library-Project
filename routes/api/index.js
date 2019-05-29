@@ -26,7 +26,7 @@ router.use('/auth', require('./auth.route'));
  *  GET     /
  * 
  */
-router.use('/profile', auth, require('./profile.route'));
+// router.use('/profile', auth, require('./profile.route'));
 
 
 
@@ -42,7 +42,7 @@ router.use('/profile', auth, require('./profile.route'));
  *  DELETE  /:id
  * 
  */
-router.use('/books', auth, require('./books.route'));
+// router.use('/books', auth, require('./books.route'));
 
 
 
@@ -54,7 +54,7 @@ router.use('/books', auth, require('./books.route'));
  *  POST     /:bookId
  * 
  */
-router.use('/buy', auth, require('./buy.route'));
+// router.use('/buy', auth, require('./buy.route'));
 
 
 
@@ -66,7 +66,7 @@ router.use('/buy', auth, require('./buy.route'));
  *  POST     /:bookId
  * 
  */
-router.use('/tag', auth, require('./tag.route'));
+// router.use('/tag', auth, require('./tag.route'));
 
 
 /* 
@@ -78,7 +78,7 @@ router.use('/tag', auth, require('./tag.route'));
  *  GET     /:id
  * 
  */
-router.use('/customer', auth, require('./customer.route'));
+// router.use('/customer', auth, require('./customer.route'));
 
 
 

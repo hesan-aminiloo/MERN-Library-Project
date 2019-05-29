@@ -1,23 +1,36 @@
-const mongoose = require('mongoose');
+const Sequelize = require('sequelize');
 const config = require('config');
 
-const db_name = config.get('database.name');
-const db_port = config.get('database.port');
-const db_ip   = config.get('database.ip');
+const db        = config.get('database.name');
+const user      = config.get('database.user');
+const pass      = config.get('database.pass');
+const host      = config.get('database.ip');
+const port      = config.get('database.port');
+const dialect   = config.get('database.driver');
 
-const uri = `mongodb://${db_ip}:${db_port}/${db_name}`;
+const sequelize = new Sequelize(db, user, pass, {
+    host,
+    port,
+    dialect,
+    // Connection pooling
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
+});
 
-mongoose
-    .connect(uri, { useNewUrlParser: true })
-    
+
+sequelize
+    .authenticate()
     .then(() => {
         console.log('Database connection successful! \n');
     })
-
     .catch(err => {
-        console.log('Failed to connect to database \n ')
         console.log(err);
+        console.log('Error connecting to database! \n');
     });
 
 
-module.exports = mongoose;
+module.exports = sequelize;
